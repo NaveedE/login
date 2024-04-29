@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <form action="/register" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <input type="submit" value="Register">
-    </form>
-
-    <!-- Message to show successful registration -->
-    <?php
-    if(isset($_GET['register']) && $_GET['register'] == 'success'){
-        echo "<p>Registered Successfully!</p>";
-    }
-    ?>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="register.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+        <!-- Display success message after successful registration -->
+        <?php
+            if (isset($_GET['registration_success'])) {
+                echo '<p class="success-message">Successfully registered!</p>';
+            }
+        ?>
+    </div>
 </body>
 </html>
